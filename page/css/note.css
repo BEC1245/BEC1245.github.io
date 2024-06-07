@@ -1,13 +1,16 @@
 .ui {
     height: 100%;
-    width: 20%;
+    width: 10%;
     
     background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .note {
     height: 100%;
-    width: 80%;
+    width: 90%;
     background-color: cornflowerblue;
 }
 
@@ -16,4 +19,20 @@
     height: 100%;
     
     display: flex;
+}
+
+.main-node {
+    width: 90%;
+    height: 80px;
+
+    background-color: aquamarine;
+    margin: 10px 0px;
+}
+
+.sub-node {
+    width: 80%;
+    height: 70px;
+
+    background-color: aquamarine;
+    margin: 5px 0px;
 }
