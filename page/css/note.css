@@ -11,7 +11,8 @@
 .note {
     height: 100%;
     width: 90%;
-    background-color: cornflowerblue;
+    box-shadow: 0 0 0 2px gray inset;
+    padding: 10px;
 }
 
 .container {
@@ -35,4 +36,89 @@
 
     background-color: aquamarine;
     margin: 5px 0px;
+}
+
+.save-container {
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.save {
+    width: 50px;
+    height: 30px;
+    border-radius: 10%;
+    background-color: greenyellow;
+    color: white;
+    text-align: center;
+    padding-top: 4px;
+    margin: 5px;
+}
+
+.reset {
+    width: 50px;
+    height: 30px;
+    border-radius: 10%;
+    background-color: lightcoral;
+    color: white;
+    text-align: center;
+    padding-top: 4px;
+    margin: 5px;
+}
+
+.note-align {
+    width: 100%;
+    height: max-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-container {
+    width: 40%;
+    height: 150px;
+    max-height: max-content;
+    padding: 3px;
+}
+
+#title {
+    width: 98%;
+    height: 70px;
+    border: none;
+    border-bottom: solid black 2px;
+    outline: none;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.content {
+    width: 80%;
+    height: 30px;
+    border: none;
+    border-bottom: solid gray 1px;
+    outline: none;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#writer {
+    width: 50%;
+    height: 20px;
+    border: none;
+    font-size: 15px;
+}
+
+#date {
+    width: 50%;
+    height: 20px;
+    border: none;
+    font-size: 15px;
+}
+
+ul {
+    margin: 0px;
+    padding-left: 20px;
 }
