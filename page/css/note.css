@@ -1,7 +1,33 @@
 .ui {
     height: 100%;
     width: 10%;
-    
+}
+
+.add-container {
+    height: 10%;
+    width: 100%;
+    background-color: aqua;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add {
+    width: 90%;
+    height: 80px;
+    background-color: rgb(142, 255, 127);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.ui-container {
+    height: 90%;
+    width: 100%;
+
     background-color: blue;
     display: flex;
     flex-direction: column;
@@ -14,7 +40,16 @@
     box-shadow: 0 0 0 2px gray inset;
     padding: 10px;
 
-    /* visibility: hidden; 가릴때 */
+    visibility: visible;
+}
+
+.note-invi {
+    height: 100%;
+    width: 90%;
+    box-shadow: 0 0 0 2px gray inset;
+    padding: 10px;
+
+    visibility: hidden;
 }
 
 .container {
@@ -28,16 +63,11 @@
     width: 90%;
     height: 80px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: aquamarine;
     margin: 10px 0px;
-}
-
-.sub-node {
-    width: 80%;
-    height: 70px;
-
-    background-color: aquamarine;
-    margin: 5px 0px;
 }
 
 .save-container {
