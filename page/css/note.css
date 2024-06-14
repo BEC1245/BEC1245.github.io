@@ -99,6 +99,17 @@
     margin: 5px;
 }
 
+.delete {
+    width: 50px;
+    height: 30px;
+    border-radius: 10%;
+    background-color: rgb(248, 44, 44);
+    color: white;
+    text-align: center;
+    padding-top: 4px;
+    margin: 5px;
+}
+
 .note-align {
     width: 100%;
     height: max-content;

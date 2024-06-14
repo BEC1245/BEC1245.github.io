@@ -168,7 +168,8 @@ function nodeAdd() {
     load(length)
 }
 
-function nodeRemove(target) { 
+function nodeRemove() { 
+    const target = parseInt(getSelected())
     let length = 0;
 
     while (true) {
