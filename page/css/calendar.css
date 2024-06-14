@@ -1,5 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
 .calendar {
-    width: 400px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -53,31 +66,89 @@
     padding: 10px;
 }
 
-.days .day {
+.day {
     text-align: center;
-    padding: 10px 0;
+    padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
 
-.days .day:hover {
+.day:hover {
     background-color: #f0f0f0;
 }
 
-.days .today {
+.today {
     background-color: #007bff;
     color: #fff;
-    border-radius: 50%;
 }
 
-.days .selected {
+.selected {
     background-color: #0056b3;
     color: #fff;
-    border-radius: 50%;
 }
 
-@media (max-width: 480px) {
-    .calendar {
-        width: 300px;
-    }
+.todo-sidebar {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    min-width: 200px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.todo-header {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.todo-list {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.todo-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.todo-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #555;
+}
+
+.todo-content {
+    margin-top: 5px;
+    color: #777;
+}
+
+.add-todo {
+    margin-top: 10px;
+}
+
+.add-todo input[type="text"],
+.add-todo textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; /* Allow textarea to be resizable vertically */
+}
+
+.add-todo button {
+    width: 100%;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-todo button:hover {
+    background-color: #0056b3;
 }

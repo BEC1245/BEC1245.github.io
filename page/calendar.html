@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/basicLayout.css">
     <link rel="stylesheet" href="./css/calendar.css">
+    <link rel="stylesheet" href="./css/todo.css">
 </head>
 <body>
     <div class="layout-main-container">
@@ -34,6 +35,20 @@
                             <div class="weekday">Sat</div>
                         </div>
                         <div class="days" id="days"></div>
+                    </div>
+                </div>
+                <div class="todo-sidebar">
+                    <div class="todo-header">Todo List</div>
+                    <div class="add-todo">
+                        <input type="text" id="todoTitle" placeholder="Title">
+                        <textarea id="todoContent" placeholder="Content"></textarea>
+                        <button id="addTodoBtn">Add</button>
+                    </div>
+                    <div class="todo-list" id="todoList">
+                        <div class="todo-item">
+                            <div class="todo-title">Todo Title 2</div>
+                            <div class="todo-content">Nulla facilisi. Sed vel ex ac justo auctor malesuada.</div>
+                        </div>
                     </div>
                 </div>
             </div>

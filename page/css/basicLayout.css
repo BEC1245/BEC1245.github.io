@@ -44,5 +44,6 @@ body {
 .layout-content {
     width: 100%;
     height: calc(100% - 70px);
+    display: flex;
     /* background-color: rgb(255, 53, 53); 이거 내용물 범위*/ 
 }

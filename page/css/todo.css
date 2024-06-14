@@ -1,0 +1,9 @@
+.todo {
+    width: 20%;
+    height: 100%;
+
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
