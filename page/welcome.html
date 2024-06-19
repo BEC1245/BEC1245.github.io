@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/basicLayout.css">
+    <link rel="stylesheet" href="./css/welcome.css">
+</head>
+<body>
+    <div class="layout-main-container">
+        <div class="layout">
+            <a href="./welcome.html" style="text-decoration: none; color: blue;">
+                <div id="welcome" style="text-decoration: none; color: blue;">
+                    <h2>소개</h2>
+                </div>
+            </a>
+
+            <a href="./note.html" style="text-decoration: none; color: blue;">
+                <div id="notes">
+                    <h2>노트 기록</h2>
+                </div>
+            </a>
+
+            <a href="./calendar.html" style="text-decoration: none; color: blue;">
+                <div id="todolist">
+                    <h2>일정 관리</h2>
+                </div>
+            </a>
+        </div>
+        <div class="layout-sub-container">
+            <div class="layout-header">
+                <div class="layout-button"></div>
+            </div>
+            <div class="content">
+                <h1>환영합니다</h1>
+                <div class="desc-container">
+                    <h3>아래는 간단한 사용 설명서 입니다.</h3>
+                    <div class="description">
+                        <p>노트</p>
+                        <p>1. 저장: 노트는 제목, 작성자, 내용을 적고 저장을 누르면 내용이 수정됩니다.</p>
+                        <p>2. 추가하기:  추가하기는 노트 페이지를 추가해 줍니다.</p>
+                        <p>3. 초기화: 내용을 공백 상태로 만듭니다.</p>
+                        <p>4. 제거: 해당 노트를 삭제합니다.</p>
+                    </div>
+                    <div class="description">
+                        <p>일정</p>
+                        <p>1. 추가: 해당 요일에 내용을 적어 일정을 추가합니다.</p>
+                        <p>2. X표시: 해당 일정을 제거합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/layout.js"></script>
+</body>
+</html>

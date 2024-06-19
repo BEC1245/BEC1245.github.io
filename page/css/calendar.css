@@ -114,10 +114,21 @@ body {
     border-bottom: 1px solid #ccc;
 }
 
+.todo-header {
+    height: max-content;
+    width: 100%;
+}
+
+.todo-delete {
+    float: right;
+    display: inline;
+}
+
 .todo-title {
     font-size: 1.2em;
     font-weight: bold;
     color: #555;
+    display: inline;
 }
 
 .todo-content {

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         daysContainer.innerHTML = ""; 
 
         // 해더의 날자 내용을 반영
-        monthYear.textContent = `${getMonthName(month)} ${year}`;
+        monthYear.textContent = `${year}년 ${getMonthName(month)}`;
 
         // Get the first day of the month and the total days in the month
         let firstDay = new Date(year, month, 1);
@@ -42,13 +42,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             day.addEventListener("click", () => {
                 selectDate(day);
+                loadTodo()
             });
             daysContainer.appendChild(day);
         }
     }
 
     function getMonthName(month) {
-        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const months = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"];
         return months[month];
     }
 
@@ -77,7 +78,100 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     
         localStorage.setItem(`${date}/${idx}`, `title:[${title.value}] content:[${content.value}]`)
+        loadTodo()
     }
+
+    function loadTodo() {
+        const list = document.getElementById('todoList')
+        const date = localStorage.getItem('selected-date');
+        let arr = []
+        let idx = 0;
+        while(true) {
+            if(localStorage.getItem(`${date}/${idx}`) !== null) {
+                arr.push(localStorage.getItem(`${date}/${idx}`))
+                idx++;
+            } else {
+                break;
+            }
+        }
+    
+        list.innerHTML = "";
+    
+        console.log(arr);
+        for(i = 0; i < arr.length; i++) {
+            const item = document.createElement('div')
+            item.classList.add('todo-item')
+            
+            let header = document.createElement('div')
+            let title = document.createElement('div')
+            let content = document.createElement('div')
+            let remove = document.createElement('div')
+
+            header.classList.add('todo-header')
+            title.classList.add('todo-title')
+            remove.classList.add('todo-delete')
+            remove.id = `${i}`
+            content.classList.add('todo-content')
+            remove.addEventListener('click', () => {
+                deleteTodo(remove)
+            })
+
+            title.innerText = findIdx(arr[i], 1);
+            content.innerText = findIdx(arr[i], 2);
+            remove.innerText = 'X';
+            header.appendChild(title)
+            header.appendChild(remove)
+            item.appendChild(header)  
+            item.appendChild(content)         
+            list.appendChild(item)
+        }
+    
+    }
+
+    function deleteTodo(target) {
+        const date = localStorage.getItem('selected-date')
+    
+        let idx = 0;
+        while(true) {
+            if(localStorage.getItem(`${date}/${idx}`) !== null) {
+                idx++;
+            } else {
+                break;
+            }
+        }
+    
+        target = parseInt(target.id);
+        if(target === idx - 1) {
+            localStorage.removeItem(`${date}/${target}`)
+        } else {
+            for(i = target; i < idx; i++) {
+                localStorage.setItem(`${date}/${idx}`, localStorage.getItem(`${date}/${i + 1}`))
+            }
+        }
+        loadTodo()
+    }
+
+    function findIdx(str, count) { // 위치
+        let counts = [count, count]
+        let idx = [-1, -1]
+    
+        for(let i = 0; i < str.length; i++) {
+            counts[0] -= str[i] === '[' ? 1 : 0;
+            counts[1] -= str[i] === ']' ? 1 : 0;
+    
+            if(counts[0] === 0) {
+                idx[0] = i;
+                counts[0] = -1
+            }
+            if (counts[1] == 0) {
+                idx[1] = i;
+                break;
+            }
+        }
+    
+        return str.slice(idx[0] + 1, idx[1]);
+    }
+
     document.getElementById('addTodoBtn').addEventListener("click", () => {
         addTodo()
     })    
@@ -102,83 +196,3 @@ document.addEventListener("DOMContentLoaded", function () {
         renderCalendar(currentMonth, currentYear);
     });
 });
-
-function findKeyIdx(str, count) { // 위치
-    let idx = -1;
-    let isZero = count === 1;
-
-    for(let i = 0; i < str.length; i++) {
-        count -= str[i] === '/' ? 1 : 0;
-        idx = count === 1 ? i : idx;
-
-        if(isZero && count === 0) {
-            return str.slice(0, i);
-        }
-        if(count === 0) {
-            return str.slice(idx, i);
-        } 
-    }
-    
-
-    if(idx === -1) {
-        alert('범위 초가')
-        return '';
-    }
-    return str.slice(idx);
-}
-
-function loadTodo() {
-    const list = document.getElementById('todoList')
-    const date = localStorage.getItem('selected-date');
-    let arr = []
-    let idx = 0;
-    while(true) {
-        if(localStorage.getItem(`${date}/${idx}`) !== null) {
-            arr.push(localStorage.getItem(`${date}/${idx}`))
-            idx++;
-        } else {
-            break;
-        }
-    }
-
-    list.innerHTML = "";
-
-    console.log(arr);
-    for(i = 0; i < arr.length; i++) {
-        const item = document.createElement('div')
-        item.classList.add('todo-item')
-        
-        let title = document.createElement('div')
-        let content = document.createElement('div')
-        title.classList.add('todo-title')
-        title.innerText = findIdx(arr[i], 1);
-
-        content.classList.add('todo-content')
-        content.innerText = findIdx(arr[i], 2);
-        item.appendChild(title)
-        item.appendChild(content)           
-        list.appendChild(item)
-    }
-
-}
-
-function findIdx(str, count) { // 위치
-    let counts = [count, count]
-    let idx = [-1, -1]
-
-    for(let i = 0; i < str.length; i++) {
-        counts[0] -= str[i] === '[' ? 1 : 0;
-        counts[1] -= str[i] === ']' ? 1 : 0;
-
-        if(counts[0] === 0) {
-            idx[0] = i;
-            counts[0] = -1
-        }
-        if (counts[1] == 0) {
-            idx[1] = i;
-            break;
-        }
-    }
-
-    return str.slice(idx[0] + 1, idx[1]);
-}

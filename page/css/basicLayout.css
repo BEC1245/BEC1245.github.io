@@ -18,7 +18,7 @@ body {
 .layout-header {
     width: 100%;
     height: 70px;
-    background-color: aquamarine;
+    background-color: rgb(139, 156, 255);
 
     display: flex;
     justify-content: left;
@@ -33,17 +33,38 @@ body {
     background-color: white;
     background-repeat: no-repeat;
     background-size: contain;
+    border-radius: 10%;
 }
 
 .layout {
     width: 230px;
     height: 100vh;
+    background-color: lightgray;
+}
 
+.none {
+    display: none;
 }
 
 .layout-content {
     width: 100%;
     height: calc(100% - 70px);
     display: flex;
+    justify-content: center;
     /* background-color: rgb(255, 53, 53); 이거 내용물 범위*/ 
 }
+
+
+#notes, #todolist, #welcome {
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
