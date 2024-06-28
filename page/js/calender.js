@@ -144,7 +144,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if(target === idx - 1) {
             localStorage.removeItem(`${date}/${target}`)
         } else {
-            localStorage.removeItem(`${date}/${target}`)
             for(i = target; i < idx; i++) {
                 localStorage.setItem(`${date}/${idx}`, localStorage.getItem(`${date}/${i + 1}`))
             }
